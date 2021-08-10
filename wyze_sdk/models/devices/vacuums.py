@@ -539,7 +539,7 @@ class Vacuum(VoltageMixin, AbstractWirelessNetworkedDevice):
         **others: dict,
     ):
         super().__init__(type=self.type, **others)
-        self.voltage = super()._extract_property(VacuumProps.battery(), others)
+        self.voltage = DeviceProp(definition=VacuumProps.battery(), value=super()._extract_attribute("battary" if "battary" in others else VacuumProps.battery().pid, others))
         self.mode = super()._extract_attribute('mode' if "mode" in others else VacuumProps.mode().pid, others)
         self.clean_level = super()._extract_attribute('clean_level' if "clean_level" in others else VacuumProps.clean_level().pid, others)
         self._current_map = VacuumMap(**super()._extract_attribute('current_map', others)) if "current_map" in others else None
