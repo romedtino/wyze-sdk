@@ -34,6 +34,7 @@ class AuthServiceClient(ExServiceClient):
             request_specific_headers = {}
 
         request_specific_headers.update({
+            "user-agent": "wyze_android_2.11.40",
             'x-api-key': self.api_key,
         })
 
