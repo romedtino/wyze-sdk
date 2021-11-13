@@ -54,7 +54,7 @@ setup(
         ]
     ),
     install_requires=["requests", 
-    "blackboxprotobuf @ https://github.com/chandlernine/blackboxprotobuf@relax_requirements", 
+    "blackboxprotobuf @ git+https://github.com/chandlernine/blackboxprotobuf@relax_requirements", 
     "mintotp"],
     setup_requires=pytest_runner,
     test_suite="tests",
