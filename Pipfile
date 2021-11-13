@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 wyze-sdk = {path = "."}
 requests = "*"
-blackboxprotobuf = "*"
+blackboxprotobuf = {git = "https://github.com/chandlernine/blackboxprotobuf.git@relax_requirements", editable = true}
 mintotp = "*"
 pycryptodomex = "*"
 
@@ -16,4 +16,4 @@ isort = "*"
 sphinx = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
