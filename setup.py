@@ -27,7 +27,7 @@ setup(
     description='The Wyze Labs API Platform SDK for Python.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/shauntarves/wyze-sdk",
+    url="https://github.com/romedtino/wyze-sdk",
     author='Shaun Tarves',
     author_email='shaun@tarves.net',
     python_requires=">=3.8.0",
