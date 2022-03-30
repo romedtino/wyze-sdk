@@ -37,6 +37,18 @@ class VacuumProps(object):
     def battery(cls) -> PropDef:
         return PropDef("battary", int)  # typo required
 
+    @classmethod
+    def filter(cls) -> PropDef:
+        return PropDef("filter", int)
+
+    @classmethod
+    def main_brush(cls) -> PropDef:
+        return PropDef("main_brush", int)
+
+    @classmethod
+    def side_brush(cls) -> PropDef:
+        return PropDef("side_brush", int)
+
 
 class VacuumMode(Enum):
 
@@ -523,6 +535,9 @@ class Vacuum(VoltageMixin, AbstractWirelessNetworkedDevice):
             "clean_level": VacuumProps.clean_level(),
             "notice_save_map": PropDef("notice_save_map", bool),
             "memory_map_update_time": PropDef("memory_map_update_time", int),
+            "filter": VacuumProps.filter(),
+            "side_brush": VacuumProps.side_brush(),
+            "main_brush": VacuumProps.main_brush(),
         }
 
     @classmethod
@@ -544,6 +559,9 @@ class Vacuum(VoltageMixin, AbstractWirelessNetworkedDevice):
         self.clean_level = super()._extract_attribute('clean_level' if "clean_level" in others else VacuumProps.clean_level().pid, others)
         self._current_map = VacuumMap(**super()._extract_attribute('current_map', others)) if "current_map" in others else None
         self.current_position = super()._extract_attribute('current_position', others)
+        self.filter = super()._extract_attribute('filter' if "filter" in others else VacuumProps.filter().pid, others)
+        self.main_brush = super()._extract_attribute('main_brush' if "main_brush" in others else VacuumProps.main_brush().pid, others)
+        self.side_brush = super()._extract_attribute('side_brush' if "side_brush" in others else VacuumProps.side_brush().pid, others)
         show_unknown_key_warning(self, others)
 
     @property
