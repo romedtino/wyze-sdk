@@ -415,6 +415,9 @@ class VacuumMap(JsonObject):
             return map
         except (binascii.Error, zlib.error) as e:
             raise WyzeObjectFormationError(f"encountered an error parsing map blob {e}")
+        except:
+
+            return None
 
 
 class VacuumSweepRecord(JsonObject):
