@@ -358,6 +358,10 @@ class VacuumMap(JsonObject):
     @property
     def charge_station(self) -> Optional[VacuumMapPoint]:
         map_data = self.parse_blob(blob=self._blob)
+
+        if map_data is None:
+            return None
+
         if 'chargeStation_' in map_data:
             return VacuumMapPoint(**map_data['chargeStation_'])
         if '7' in map_data:
@@ -366,6 +370,10 @@ class VacuumMap(JsonObject):
     @property
     def rooms(self) -> Optional[Sequence[VacuumMapRoom]]:
         map_data = self.parse_blob(blob=self._blob)
+
+        if map_data is None:
+            return None
+
         if 'roomDataInfo_' in map_data:
             return [VacuumMapRoom(**room) for room in map_data['roomDataInfo_']]
         if '12' in map_data:
@@ -374,6 +382,10 @@ class VacuumMap(JsonObject):
     @property
     def navigation_points(self) -> Optional[Sequence[VacuumMapNavigationPoint]]:
         map_data = self.parse_blob(blob=self._blob)
+
+        if map_data is None:
+            return None
+
         if 'historyPose_' in map_data:
             print(map_data['historyPose_'])
             return [VacuumMapNavigationPoint(**points) for points in map_data['historyPose_']['points']]
