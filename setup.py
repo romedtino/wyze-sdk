@@ -54,7 +54,7 @@ setup(
         ]
     ),
     install_requires=["requests", 
-    "blackboxprotobuf @ git+https://github.com/chandlernine/blackboxprotobuf@relax_requirements", 
+    "blackboxprotobuf @ git+https://github.com/romedtino/blackboxprotobuf/relax_requirements2@relax_requirements2", 
     "mintotp", 
     "pycryptodomex"],
     setup_requires=pytest_runner,
